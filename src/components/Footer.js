@@ -10,20 +10,31 @@ export default function Footer(){
     
 </Container>
 <Last>
-
+<P>Lucy All rights reserved.</P>
 </Last>
 </Main>
     )
 }
 const Main = styled.div`
 
+background-image: url(${Background});
+
 `
 const Container = styled.div`
 height:450px;
-background-image: url(${Background});
+margin-bottom:0px;
 `
 const Last = styled.div`
-height:80px;
+height:70px;
 background-color:rgb(108, 63, 168);
 width:100%;
+margin: 0px;
+`
+
+const P = styled.p`
+font-size: 18px;
+font-weight:lighter;
+color:white;
+text-align: center;
+padding-top: 15px;
 `

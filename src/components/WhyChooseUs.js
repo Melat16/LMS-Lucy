@@ -54,20 +54,28 @@ export default function WhyChooseUs(){
     <H1>Why Choose Us?</H1>
     <Sub>
 
-        <P>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</P>
+    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
+         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
+         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
     </Sub>
     <Sub2>
 
-        <P>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</P>
+    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
+         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
+         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
     </Sub2>
     <Sub3>
 
-        <P>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</P>
+    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
+         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
+         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
     </Sub3>
 
     <Sub4>
 
-        <P>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</P>
+    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
+         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
+         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
     </Sub4>
 </Container>
     )

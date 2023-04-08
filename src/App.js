@@ -1,15 +1,10 @@
 import './App.css';
-import Home from './components/Home';
-import Navbar from './components/Navbar';
-import WhyChooseUs from './components/WhyChooseUs';
-
+import Landing from './pages/Landing';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-    <Home/>
-    <WhyChooseUs/>
+    <div className="App"> 
+    <Landing/>
     </div>
   );
 }

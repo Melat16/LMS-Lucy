@@ -1,22 +1,37 @@
 import React from "react";
 import styled from "styled-components"
+import Logo from "../assets/IMG_0984 1.png"
+
+
+const Leftcontainer = styled.div`
+height:105px;
+float: left;
+margin-left:50px;
+padding-top: 15px;
+`
+
+const Rightcontainer = styled.div`
+height:100px;
+float: right;
+padding-top: 20px;
+
+`
 
 const Container= styled.div`
-height:90px;
-background:green;
+height:120px;
 width:100%;
 `
 
 const Button = styled.button`
-height:50px;
+height:60px;
 width: 160px;
 background-color:rgb(96,57,147);
 font-size:16px;
 font-weight:bold;
 border:none;
-margin-top:17px;
+margin-top:10px;
 float:right;
-margin-right:40px;
+margin-right:60px;
 color:white;
 
 `
@@ -24,7 +39,16 @@ export default function Navbar(){
     return(
 
 <Container>
+    <Leftcontainer>
+    <img src={Logo} alt="Logo" style={{
+        width:'90px',
+        height:'80px'
+    }}/>
+    </Leftcontainer>
+    <Rightcontainer>
     <Button>Get Started</Button>
+    </Rightcontainer>
+
 </Container>
     )
 }

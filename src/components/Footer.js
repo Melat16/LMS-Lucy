@@ -4,6 +4,8 @@ import Background from "../assets/Ellipse 6.png"
 import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
+import  {Phone}  from "@material-ui/icons";
+import  {Email}  from "@material-ui/icons";
 
 
 export default function Footer(){
@@ -21,7 +23,7 @@ export default function Footer(){
 <H6>Lorem ipsum dolor</H6>
 
 <hr style={{width :'550px'}}/>
-
+<span><H6><Phone/> 0115 567890 </H6> <H6><Email/>info@lucy.com</H6> </span>  
     </Left>
 
     <Right>
@@ -70,7 +72,7 @@ font-weight:lighter;
 color:white;
 text-align: start;
 margin-left:120px;
-margin-bottom:15px;
+margin-bottom:10px;
 margin-top:5px;
 `
 const Left = styled.div`

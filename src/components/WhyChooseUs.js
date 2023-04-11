@@ -42,10 +42,11 @@ color: black;
 
 `
 const H1 = styled.h1`
-font-size:46px;
+font-size:42px;
 font-weight:bold;
 margin-bottom:70px;
 margin-top:60px;
+color: rgb(71, 64, 64);
 `
 export default function WhyChooseUs(){
     return(

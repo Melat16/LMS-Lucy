@@ -40,7 +40,7 @@ background-color:rgb(96,57,147);
 `
 
 const H1 = styled.h1`
-font-size:46px;
+font-size:42px;
 font-weight:bold;
 color:white;
 padding-top: 90px;

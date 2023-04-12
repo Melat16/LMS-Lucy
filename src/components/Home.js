@@ -1,12 +1,13 @@
 import React from "react";
 import styled from 'styled-components'
 import image1 from '../assets/girl.png'
-import Background from "../assets/Frame 39.png"
+import Background from "../assets/bg2.png"
 import Dialog from "@material-ui/core/Dialog";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { Link } from "react-router-dom";
 
 export default function Home(){
 
@@ -41,7 +42,7 @@ export default function Home(){
 <Container>
 <Left>
 
-    <H1>Code , Create and Connect</H1>
+    <H1> <span style={{color: "rgb(96,57,147)"}}>Code</span> , <span style={{color: "rgb(58, 175, 255)"}}>Create</span> and <span style={{color: "rgb(248, 134, 18)"}}> Connect</span></H1>
     <H5>We will recommend courses</H5>
     <Sub>
         <Ul>
@@ -62,7 +63,7 @@ export default function Home(){
         <DialogTitle style={{fontSize:'40px', fontWeight:'bold' , textAlign: 'center'}}>Join Now!</DialogTitle>
         <DialogContent>
           <DialogContentText style={{color:'rgb(96,57,147)' , fontSize:'18px', fontWeight: 'bold'}}>
-             Phone number
+             Email
           </DialogContentText>
           <Input
             
@@ -93,8 +94,8 @@ export default function Home(){
           <Input
             
             id="name"
-            label="Email Address"
-            type="email"
+            label="Grade"
+            type="Number"
            
           />
         </DialogContent>
@@ -118,13 +119,16 @@ export default function Home(){
           <Input
             
             id="name"
-            label="Email Address"
-            type="email"
+            label="Experience"
+            type="text"
            
           />
         </DialogContent>
         <DialogActions>
-          <Nextbtn onClick={handleClose}> - </Nextbtn>
+        <Link to='/courses'>
+        <Nextbtn > done </Nextbtn>
+                  </Link>
+          
         </DialogActions>
       </Dialog>
 
@@ -145,6 +149,7 @@ export default function Home(){
 const Container = styled.div`
 
 background-image: url(${Background});
+background-repeat:no-repeat;
 height: 90vh;
 width: 100%;
 
@@ -188,6 +193,7 @@ font-size:52px;
 font-weight:400px;
 margin-bottom:4px;
 word-spacing: 1px;
+color: rgb(71, 64, 64);
 `
 
 const H5 = styled.h5`
@@ -202,7 +208,7 @@ background-color:rgb(96,57,147);
 font-size:22px;
 font-weight:bold;
 border:none;;
-margin-right:40px;
+margin-right:60px;
 color:white;
 
 `

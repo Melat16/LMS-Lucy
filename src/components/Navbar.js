@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components"
 import Logo from "../assets/IMG_0984 1.png"
+import { Link } from "react-router-dom";
 
 
 const Leftcontainer = styled.div`
@@ -40,10 +41,12 @@ export default function Navbar(){
 
 <Container>
     <Leftcontainer>
+    <Link to='/'>
     <img src={Logo} alt="Logo" style={{
         width:'90px',
         height:'80px'
     }}/>
+     </Link>
     </Leftcontainer>
     <Rightcontainer>
     <Button>Get Started</Button>

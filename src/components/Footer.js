@@ -28,7 +28,7 @@ export default function Footer(){
 
     <Right>
 <FormDiv>
-<Hr/>
+
 <H2>Contact Us</H2>
 <Input placeholder="Email"/>
 <Input2 placeholder="Comment" />

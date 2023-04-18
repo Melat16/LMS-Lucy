@@ -3,6 +3,10 @@ import styled from "styled-components"
 
 const Container = styled.div`
 height :85vh;
+
+@media (max-width: 768px) {
+     height:115vh;
+   }
 `
 const Sub = styled.div`
 height:100px;
@@ -11,6 +15,13 @@ background:rgb(221, 207, 227);
 margin-left:150px;
 border-radius:16px;
 margin-bottom:20px;
+
+@media (max-width: 768px) {
+     width: 80%;
+     margin-left: auto;
+     margin-right: auto;
+     height:150px;
+   }
 `
 const Sub2 = styled.div`
 height:100px;
@@ -19,35 +30,69 @@ background:rgb(221, 207, 227);
 margin-left:450px;
 border-radius:16px;
 margin-bottom:20px;
+
+@media (max-width: 768px) {
+     width: 80%;
+     margin-left: auto;
+     margin-right: auto;
+     height:150px;
+   }
 `
 const Sub3 = styled.div`
-height:100px;
-width:900px;
-background:rgb(221, 207, 227);
-margin-left:150px;
-border-radius:16px;
-margin-bottom:20px;
-`
-const Sub4 = styled.div`
-height:100px;
-width:900px;
-background:rgb(221, 207, 227);
-margin-left:520px;
-border-radius:16px;
-margin-bottom:20px;
-`
-const P =styled.div`
-padding:20px;
-color: black;
+  height: 100px;
+  width: 900px;
+  background: rgb(221, 207, 227);
+  margin-left: 150px;
+  border-radius: 16px;
+  margin-bottom: 20px;
 
-`
+  @media (max-width: 768px) {
+     width: 80%;
+     margin-left: auto;
+     margin-right: auto;
+     height:150px;
+   }
+`;
+
+const Sub4 = styled.div`
+  height: 100px;
+  width: 900px;
+  background: rgb(221, 207, 227);
+  margin-left: 520px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+     width: 80%;
+     margin-left: auto;
+     margin-right: auto;
+     height:150px;
+   }
+`;
+
+const P =styled.div`
+  padding: 20px;
+  color: black;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    font-size:16px;
+  }
+`;
+
 const H1 = styled.h1`
-font-size:42px;
-font-weight:bold;
-margin-bottom:70px;
-margin-top:60px;
-color: rgb(71, 64, 64);
-`
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 70px;
+  margin-top: 60px;
+  color: rgb(71, 64, 64);
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+`;
 export default function WhyChooseUs(){
     return(
 

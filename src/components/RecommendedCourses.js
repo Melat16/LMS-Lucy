@@ -7,21 +7,13 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function RecommendedCourses(){
-    const [open, setOpen] = React.useState(false);
+  
     const [opend2,setOpend2] = React.useState(false);
     const [opend3,setOpend3] = React.useState(false);
 
 
-    const handleClickOpen = () => {
-        setOpen(true);
-      };
-
-      const handleClose = () => {
-        setOpen(false);
-      };
       const handleClickOpend2 = () => {
         setOpend2(true);
-        setOpen(false)
       };
     
       const handleClosed2 = () => {
@@ -61,29 +53,9 @@ export default function RecommendedCourses(){
 <Div3>
     <H3>Price</H3>
     <H6>123$</H6>
-    <Button onClick={handleClickOpen}>Enroll</Button>
+    <Button onClick={handleClickOpend2}>Enroll</Button>
 
-    <Dialog open={open} onClose={handleClose}>
-      <DialogTitle style={{fontSize:'40px', fontWeight:'bold' , textAlign: 'center' , color:'rgb(96,57,147)'}}>Payment</DialogTitle>
-      <DialogContent>
-       <Modal>
-        <Div5>
-    <H3>Starter Packages</H3>
-     <Ul>
-    <Li>1hr/week</Li>
-    <Li>1hr/week</Li>
-    <Li>1hr/week</Li>
-       </Ul>
-       </Div5>
-        <Div6> 
-        <H3>Price</H3>
-        <H6>123$</H6>
-       <Button2 onClick={handleClickOpend2}>Enroll</Button2>
-       </Div6>
-        </Modal>
-      </DialogContent>
-    </Dialog>
-
+   
     <Dialog open={opend2} onClose={handleClosed2}>
       <DialogTitle style={{fontSize:'40px', fontWeight:'bold' , textAlign: 'center' , color:'rgb(96,57,147)'}}>Payment</DialogTitle>
       <DialogContent>

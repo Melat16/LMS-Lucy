@@ -30,15 +30,15 @@ color: rgb(71, 64, 64);
 const Container2 = styled.div`
 height:220px;
 width:1400px;
-margin-left:90px;
+margin-left:140px;
 display:flex;
 flex-direction: row;
 margin-bottom:80px;
 `
 const Div = styled.div`
-height: 200px;
-width:400px;
-margin-left:50px;
+height: 190px;
+width:350px;
+margin-left:60px;
 border-style: solid;
 border-radius: 15px;
 background-color: red;
@@ -47,9 +47,9 @@ background-color:rgb(248, 134, 18) ;
 
 `
 const Div2 = styled.div`
-height: 200px;
-width:400px;
-margin-left:50px;
+height: 190px;
+width:350px;
+margin-left:60px;
 border-style: solid;
 border-radius: 15px;
 background-color: red;
@@ -58,9 +58,9 @@ background-color: rgb(96,57,147) ;
 
 `
 const Div3 = styled.div`
-height: 200px;
-width:400px;
-margin-left:50px;
+height: 190px;
+width:350px;
+margin-left:60px;
 border-style: solid;
 border-radius: 15px;
 background-color: red;
@@ -77,12 +77,12 @@ color: white;
 const H4 = styled.h4`
 font-size: 24px;
 font-weight:bold;
-margin-top: 20px;
+margin-top: 10px;
 color: white;
 `
 const InnerDiv = styled.div`
-height: 80px;
-width:350px;
+height: 60px;
+width:290px;
 margin-left:20px;
 margin-top:20px;
 border-style: solid;
@@ -96,8 +96,8 @@ justify-content:center;
 `
 
 const InnerDiv2 = styled.div`
-height: 80px;
-width:350px;
+height: 60px;
+width:290px;
 margin-left:20px;
 margin-top:20px;
 border-style: solid;
@@ -109,8 +109,8 @@ background-color:rgb(58, 175, 255);
 `
 
 const InnerDiv3 = styled.div`
-height: 80px;
-width:350px;
+height: 60px;
+width:290px;
 margin-left:20px;
 margin-top:20px;
 border-style: solid;

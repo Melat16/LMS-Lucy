@@ -126,7 +126,7 @@ export default function Home(){
 <img alt='background' src={image1} style={{
     marginLeft:'100px',
               height: '550px',
-              width: '530px',
+              width: '500px',
             }} />
 </Right>
 

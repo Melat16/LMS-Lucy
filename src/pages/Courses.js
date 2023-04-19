@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import ExploreCourses from "../components/ExploreCourses"
 
 const Container= styled.div`
+width:100%;
 
 `
 

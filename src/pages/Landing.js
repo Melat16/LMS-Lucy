@@ -19,5 +19,6 @@ export default function Landing(){
     )
 }
 const Container = styled.div`
+width:100%
 
 `

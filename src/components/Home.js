@@ -9,7 +9,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Link ,useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from 'axios';
+
 
 export default function Home(){
     const navigate=useNavigate();

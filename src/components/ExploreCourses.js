@@ -1,16 +1,32 @@
-import React from "react";
-import styled from "styled-components"
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import styled from "styled-components";
 
 export default function ExploreCourses(){
+    const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        const response = await axios.get('http://208.68.36.33:5000/api/v1/course');
+        setCourses(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchCourses();
+  }, []);
+
+
     return(
 
 <Container>
 <H1>Explore Courses</H1>
-<Container2>
-    <Div><H3>Scratch</H3> <InnerDiv><H4>78 Courses</H4></InnerDiv></Div>
-    <Div2><H3>Scratch</H3><InnerDiv2><H4>78 Courses</H4></InnerDiv2></Div2>
-    <Div3><H3>Scratch</H3><InnerDiv3><H4>78 Courses</H4></InnerDiv3></Div3>
-</Container2>
+{courses.map((course) => (
+        <Container2 key={course._id}>
+            <Div><H3>{course.name}</H3> <InnerDiv><H4>Price: {course.price}</H4></InnerDiv></Div>
+        </Container2>
+      ))}
 </Container>
     )
 }
@@ -44,38 +60,15 @@ border-radius: 15px;
 background-color: red;
 border-color:rgb(248, 134, 18);
 background-color:rgb(248, 134, 18) ;
-
-`
-const Div2 = styled.div`
-height: 190px;
-width:350px;
-margin-left:60px;
-border-style: solid;
-border-radius: 15px;
-background-color: red;
-border-color: rgb(96,57,147);
-background-color: rgb(96,57,147) ;
-
-`
-const Div3 = styled.div`
-height: 190px;
-width:350px;
-margin-left:60px;
-border-style: solid;
-border-radius: 15px;
-background-color: red;
-border-color:rgb(58, 175, 255);
-background-color:rgb(58, 175, 255);
-
 `
 const H3 = styled.h4`
-font-size: 28px;
+font-size: 24px;
 font-weight:bold;
 margin-top: 20px;
 color: white;
 `
 const H4 = styled.h4`
-font-size: 24px;
+font-size: 20px;
 font-weight:bold;
 margin-top: 10px;
 color: white;

@@ -47,13 +47,14 @@ export default function Footer(){
 
 const Main = styled.div`
   background-image: url(${Background});
+  height:450px;
   @media (max-width: 768px) {
     background:rgb(96,57,147);
   }
 `;
 
 const Container = styled.div`
-  height: 450px;
+  height: 370px;
   margin-bottom: 0px;
 
   @media (max-width: 768px) {
@@ -68,22 +69,24 @@ const Last = styled.div`
   background-color: rgb(108, 63, 168);
   width: 100%;
   margin: 0px;
+  text-align:start;
+  align-items: center;
 `;
 
 const P = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: lighter;
   color: white;
-  text-align: center;
+ align-items:center;
   padding-top: 15px;
-
   @media (max-width: 768px) {
     font-size: 14px;
   }
 `;
 
 const Hr = styled.hr`
-width:550px;
+width:400px;
+margin-left:120px;
 @media (max-width: 768px) {
     font-size: 14px;
     width:300px;
@@ -112,7 +115,7 @@ const Left = styled.div`
   float: left;
   width: 50%;
   height: 350px;
-  margin-top: 120px;
+  margin-top: 110px;
 
   // Media query for screens less than 768px wide
   @media (max-width: 768px) {
@@ -128,7 +131,7 @@ const Right = styled.div`
   float: right;
   width: 50%;
   height: 300px;
-  margin-top: 150px;
+  margin-top: 110px;
 
   // Media query for screens less than 768px wide
   @media (max-width: 768px) {
@@ -141,22 +144,22 @@ const Right = styled.div`
 
 // Define styles for H1 component
 const H1 = styled.h1`
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   color: white;
   margin-left: 120px;
   text-align: start;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   // Media query for screens less than 768px wide
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 22px;
     margin-left: 0;
     text-align: center;
   }
 `;
 const H2 = styled.h1`
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   margin-left: 20px;
   color: white;
@@ -165,7 +168,7 @@ const H2 = styled.h1`
 
 const FormDiv = styled.div`
   width: 430px;
-  height: 280px;
+  height: 260px;
   border-style: solid;
   border-color: white;
   border-width: 0.6px;
@@ -225,14 +228,14 @@ const Input2 = styled.input`
 `;
 
 const Button = styled.button`
-  width: 150px;
+  width: 120px;
   height: 50px;
   border-style: solid;
   border-color: white;
   border-width: 0.7;
-  margin-left: 200px;
+  margin-left: 250px;
   background-color: rgb(96, 57, 147);
-  margin-top: 10px;
+  margin-top: 5px;
   color: white;
   font-size: 18px;
 

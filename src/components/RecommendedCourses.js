@@ -33,9 +33,9 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
     return (
       <>
         {timeslots.map(timeslot => (
-          <button key={timeslot} onClick={() => handleSelectTime(timeslot)} disabled={!selectedDate}>
+          <Timebtn key={timeslot} onClick={() => handleSelectTime(timeslot)} disabled={!selectedDate}>
             {timeslot}
-          </button>
+          </Timebtn>
         ))}
       </>
     );
@@ -57,6 +57,7 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
     };
       const handleClickOpend2 = () => {
         setOpend2(true);
+        setOpen(false);
       };
       const handleClickOpend3 = () => {
         setOpend3(true);
@@ -109,15 +110,16 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
 
 
          <Dialog open={open} onClose={handleClose}>
-  <DialogTitle style={{fontSize:'40px', fontWeight:'bold' , textAlign: 'center' , color:'rgb(96,57,147)'}}>Payment</DialogTitle>
+  <DialogTitle style={{fontSize:'40px', fontWeight:'bold' , textAlign: 'center' , color:'rgb(96,57,147)'}}>Pick start date</DialogTitle>
   <DialogContent>
-  <button onClick={handleSelectDate1}>Thursday, April 20</button>
-      <button onClick={handleSelectDate2}>Friday, April 21</button>
-      <br />
-      <br />
+    <ButtonDiv>
+  <Datebtn onClick={handleSelectDate1}>Thursday, April 20</Datebtn>
+      <Datebtn onClick={handleSelectDate2}>Friday, April 21</Datebtn>
+      </ButtonDiv>
+
       {selectedDate && (
         <>
-         
+         <H2>Pick time</H2>
           {renderTimeSlots()}
           
           <br />
@@ -484,7 +486,40 @@ background-color:rgb(96,57,147);
 width: 100px;
 height: 45px;
 border-color:rgb(96,57,147);
-margin-left: 30px;
+margin-left: 0px;
+margin-top: 10px;
+color:white;
+`
+
+const Datebtn = styled.button`
+border-radius: 8px;
+border-style:solid;
+background-color:white;
+width: 150px;
+height: 40px;
+border-color:rgb(96,57,147);
+margin-right: 10px;
+margin-top: 0px;
+color:rgb(96,57,147);
+
+`
+const Timebtn = styled.button`
+border-radius: 8px;
+border-style:solid;
+background-color:rgb(96,57,147);
+width: 90px;
+height: 40px;
+border-color:rgb(96,57,147);
+margin-left: 10px;
 margin-top: 0px;
 color:white;
+`
+const H2 = styled.p`
+color:rgb(96,57,147);
+margin-left:150px;
+font-size:22px;
+font-weight:200px;
+`
+const ButtonDiv = styled.div`
+margin: auto;
 `

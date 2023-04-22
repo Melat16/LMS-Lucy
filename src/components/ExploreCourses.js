@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from "styled-components"
 
 export default function ExploreCourses(){
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+      async function fetchCourses() {
+        try {
+          const response = await axios.get('http://208.68.36.33:5000/api/v1/course');
+          setCourses(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      fetchCourses();
+    }, []);
+  
     return(
 
 <Container>
-<H1>Explore Courses</H1>
-<Container2>
-    <Div><H3>Scratch</H3> <InnerDiv><H4>78 Courses</H4></InnerDiv></Div>
-    <Div2><H3>Scratch</H3><InnerDiv2><H4>78 Courses</H4></InnerDiv2></Div2>
-    <Div3><H3>Scratch</H3><InnerDiv3><H4>78 Courses</H4></InnerDiv3></Div3>
-</Container2>
+{courses.map((course) => (
+        <Container2 key={course._id}>
+          <Div>
+            <H3>{course.name}</H3>
+          </Div>
+        </Container2>
+      ))}
 </Container>
     )
 }
@@ -32,7 +48,7 @@ height:220px;
 width:1400px;
 margin-left:140px;
 display:flex;
-flex-direction: row;
+flex-direction:row;
 margin-bottom:80px;
 `
 const Div = styled.div`

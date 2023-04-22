@@ -1,16 +1,26 @@
-import React from "react";
+
 import styled from "styled-components"
 import Dialog from "@material-ui/core/Dialog";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import image1 from '../assets/scratch.jpg'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-export default function RecommendedCourses(){ const [selectedDate, setSelectedDate] = useState(null);
+export default function RecommendedCourses(){ 
+
+  const [courses, setCourses] = React.useState([]);
+  
+  useEffect(() => {
+    axios.get('http://208.68.36.33:5000/api/v1/course').then(response => {
+     setCourses(response.data);
+    })
+  }, []);
+  const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
 
   const handleSelectDate1 = () => {
@@ -78,6 +88,7 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
   <Container2>
 
 <Div>
+  
     <Div4>
     <img alt='background' src={image1} style={{
               height: '220px',
@@ -95,7 +106,7 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
         </Div3>   
     </Div>
 <Div2>
-<H3>Scratch Programming</H3>
+<H3>scratch programming</H3>
 <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
          atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
          veritatis vel magni atque? Quo vero excepturi est vero ipsa Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
@@ -104,6 +115,7 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
          atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
          veritatis vel magni atque? Quo vero excepturi est vero ipsaLorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
          atque? Quo vero </P>
+
 <H4>Skills</H4> 
          <Button onClick={handleClickOpen}>Enroll</Button>
 
@@ -111,8 +123,8 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
          <Dialog open={open} onClose={handleClose}>
   <DialogTitle style={{fontSize:'40px', fontWeight:'bold' , textAlign: 'center' , color:'rgb(96,57,147)'}}>Payment</DialogTitle>
   <DialogContent>
-  <button onClick={handleSelectDate1}>Thursday, April 20</button>
-      <button onClick={handleSelectDate2}>Friday, April 21</button>
+  <Button onClick={handleSelectDate1}>Thursday, April 20</Button>
+      <Button onClick={handleSelectDate2}>Friday, April 21</Button>
       <br />
       <br />
       {selectedDate && (

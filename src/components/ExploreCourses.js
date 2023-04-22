@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from "styled-components";
+import { Link ,useNavigate } from "react-router-dom";
 
 export default function ExploreCourses(){
+  const navigate=useNavigate();
   const [courses, setCourses] = useState([]);
+  
 
   useEffect(() => {
     async function fetchCourses() {
@@ -18,6 +21,11 @@ export default function ExploreCourses(){
     fetchCourses();
   }, []);
 
+  const submit = (e) => {
+    e.preventDefault();
+    navigate('/singlecourse');
+
+  }
 
 
     return(
@@ -29,7 +37,12 @@ export default function ExploreCourses(){
        
           <Div key={course._id}>
             <H3>{course.Name}</H3>
-            <InnerDiv2><P>{course.Description}</P></InnerDiv2>
+            <InnerDiv2><P>{course.Description}</P><Link to='/courses'>
+            <Button onClick={submit}>View More</Button>
+                  </Link></InnerDiv2>
+
+            
+           
           </Div>
         
       ))}
@@ -37,12 +50,18 @@ export default function ExploreCourses(){
 </>
     )
 }
-
+const Button = styled.button`
+width:130px;
+height:45px;
+color:white;
+background:rgb(248, 134, 18);
+border:none;
+`
 const Container= styled.div`
 width:100%;
 height:auto;
 max-width: 1350px;
-margin-left:190px;
+margin-left:150px;
 display: flex;
 flex-direction: row;
 margin-bottom:80px;
@@ -55,20 +74,19 @@ text-align: center;
 color: rgb(71, 64, 64);
 `
 const Div = styled.div`
-height: 190px;
-width:350px;
+height: 230px;
+width:380px;
 margin-left:60px;
 border-style: solid;
 border-radius: 15px;
-background-color: red;
-border-color:rgb(248, 134, 18);
-background-color:rgb(96,57,147) ;
+border-width:0.8px;
+border-color:rgb(96,57,147) ;
 `
 const H3 = styled.h4`
 font-size: 24px;
 font-weight:bold;
 margin-top: 20px;
-color: white;
+color: black;
 `
 const P = styled.p`
 font-size: 18px;
@@ -78,12 +96,12 @@ text-align:center;
 `
 
 const InnerDiv2 = styled.div`
-height: 70px;
-width:290px;
-margin-left:20px;
-margin-top:20px;
+height: 120px;
+width:310px;
+margin-left:30px;
+margin-top:5px;
 border-style: solid;
-border-radius: 40px;
+border-radius: 10px;
 background-color: red;
 border-color:rgb(58, 175, 255);
 background-color:rgb(58, 175, 255);

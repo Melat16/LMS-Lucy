@@ -10,72 +10,72 @@ import image1 from '../assets/scratch.jpg'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-export default function RecommendedCourses(){ const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTime, setSelectedTime] = useState(null);
-
-  const handleSelectDate1 = () => {
-    setSelectedDate(new Date(2022, 3, 20));
-    setSelectedTime(null);
-  }
-
-  const handleSelectDate2 = () => {
-    setSelectedDate(new Date(2022, 3, 21));
-    setSelectedTime(null);
-  }
-
-  const handleSelectTime = (time) => {
-    setSelectedTime(time);
-  }
-
-  const renderTimeSlots = () => {
-    const timeslots = ['1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM'];
-
-    return (
-      <>
-        {timeslots.map(timeslot => (
-          <Timebtn key={timeslot} onClick={() => handleSelectTime(timeslot)} disabled={!selectedDate}>
-            {timeslot}
-          </Timebtn>
-        ))}
-      </>
-    );
-  }
-  const [selected, setSelected] = useState(null);
-  const toggle = (i) => {
-    if (selected == i) {
-      return setSelected(null);
-    }
-    setSelected(i);
-  };
+export default function Course(){ const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState(null);
   
-    const [open, setOpen] = React.useState(false);
-    const [opend2,setOpend2] = React.useState(false);
-    const [opend3,setOpend3] = React.useState(false);
-
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-      const handleClickOpend2 = () => {
-        setOpend2(true);
-        setOpen(false);
-      };
-      const handleClickOpend3 = () => {
-        setOpend3(true);
-        setOpend2(false)
-      };
-      const handleClose = () => {
-        setOpen(false);
-      };
-      const handleClosed2 = () => {
-        setOpend2(false);
-      };
-      const handleClosed3 = () => {
-        setOpend3(false);
+    const handleSelectDate1 = () => {
+      setSelectedDate(new Date(2022, 3, 20));
+      setSelectedTime(null);
+    }
+  
+    const handleSelectDate2 = () => {
+      setSelectedDate(new Date(2022, 3, 21));
+      setSelectedTime(null);
+    }
+  
+    const handleSelectTime = (time) => {
+      setSelectedTime(time);
+    }
+  
+    const renderTimeSlots = () => {
+      const timeslots = ['1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM'];
+  
+      return (
+        <>
+          {timeslots.map(timeslot => (
+            <Timebtn key={timeslot} onClick={() => handleSelectTime(timeslot)} disabled={!selectedDate}>
+              {timeslot}
+            </Timebtn>
+          ))}
+        </>
+      );
+    }
+    const [selected, setSelected] = useState(null);
+    const toggle = (i) => {
+      if (selected == i) {
+        return setSelected(null);
       }
+      setSelected(i);
+    };
+    
+      const [open, setOpen] = React.useState(false);
+      const [opend2,setOpend2] = React.useState(false);
+      const [opend3,setOpend3] = React.useState(false);
+  
+      const handleClickOpen = () => {
+        setOpen(true);
+      };
+        const handleClickOpend2 = () => {
+          setOpend2(true);
+          setOpen(false);
+        };
+        const handleClickOpend3 = () => {
+          setOpend3(true);
+          setOpend2(false)
+        };
+        const handleClose = () => {
+          setOpen(false);
+        };
+        const handleClosed2 = () => {
+          setOpend2(false);
+        };
+        const handleClosed3 = () => {
+          setOpend3(false);
+        }
     return(
-
+        
 <Container>
-  <H1>Recommended Courses</H1>
+  <H1>Courses</H1>
   <Container2>
 
 <Div>
@@ -521,5 +521,4 @@ font-size:22px;
 font-weight:200px;
 `
 const ButtonDiv = styled.div`
-margin: auto;
-`
+margin: auto;`

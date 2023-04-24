@@ -107,13 +107,7 @@ export default function Home(){
           
           </DialogContentText>
           <form onSubmit={handleSubmit}>
-      <Input
-        type="email"
-        value={Email}
-        onChange={(event) => setEmail(event.target.value)}
-        placeholder="Enter email"
-        required
-      />
+   
        <Phone 
           inputStyle={{width: '250px',
             height: '45px',
@@ -134,7 +128,13 @@ export default function Home(){
       required
     />
       
-
+      <Input2
+        type="email"
+        value={Email}
+        onChange={(event) => setEmail(event.target.value)}
+        placeholder="Enter email"
+        required
+      />
       {Students.map((child, index) => {
         return (
           <div key={index}>
@@ -229,26 +229,6 @@ const Right = styled.div`
    display:none;
   }
 `;
-const Input = styled.input`
-  width: 490px;
-  height: 40px;
-  border-radius:10px;
-  border-style:solid;
-  padding-left:10px;
-  border-color: rgb(96,57,147);
-  border-width:0.6px;
-  background-color: rgb(236, 236, 236);
-  margin-bottom:5px;
-  margin-right:5px;
-
-  ::placeholder {
-    color:rgb(96,57,147);
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
 
 const Phone = styled(PhoneInput)`
 margin-bottom:10px;
@@ -285,7 +265,7 @@ margin-right:5px;
 
 `
 const Input2 = styled.input`
-width: 235px;
+width: 490px;
 height: 40px;
 border-radius:10px;
 border-style:solid;
@@ -293,10 +273,10 @@ padding-left:10px;
 border-color: rgb(96,57,147);
 border-width:0.6px;
 background-color: rgb(236, 236, 236);
-margin-bottom:5px;
+margin-bottom:15px;
 margin-right:5px;
 ::placeholder {
-  color:rgb(96,57,147);
+  color:black;
  }
 
 

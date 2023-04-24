@@ -148,7 +148,7 @@ export default function Home(){
               <Option value="Grade 2-3">Grade 2-3</Option>
               <Option value="Grade 4-5">Grade 4-5</Option>
               <Option value="Grade 6-8">Grade 6-8</Option>
-              <Option value="Grade 6-8">Grade 6-8</Option>
+              <Option value="Grade 11-12">Grade 11-12</Option>
             </Select>
             <Select
               name=" CodingExperiance"

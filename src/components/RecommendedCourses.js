@@ -277,7 +277,8 @@ const Content = styled.div`
   background-color: rgb(255, 244, 238);
   text-align: start;
   position: relative;
-  padding: 20px;
+  padding-left:5px;
+  height:80px;
 `;
 
 const Span = styled.span`
@@ -318,11 +319,11 @@ const H1 = styled.h1`
 `;
 
 const Container2 = styled.div`
-  height: 550px;
+  height: 510px;
   width: 100%;
   max-width: 1350px;
   background-color: rgb(247, 229, 253);
-  margin-left: 90px;
+  margin-left: 130px;
   display: flex;
   flex-direction: row;
   margin-bottom: 80px;
@@ -416,7 +417,7 @@ const H4 = styled.h4`
 `;
 const H6 = styled.h6`
   font-size: 18px;
-  font-weight: 300px;
+  font-weight: lighter;
 
   @media screen and (max-width: 768px) {
     font-size: 16px;

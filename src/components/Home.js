@@ -11,23 +11,34 @@ import { Link ,useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/material.css";
 import { useState } from "react";
+import axios from "axios";
 
 
 export default function Home(){
+
+  const submitForm = async (event) => {
+  event.preventDefault();
+
+  const form = new FormData(event.target);
+
+  const options = {
+    method: 'POST',
+    body: form,
+  };
+
+  const response = await fetch('http://208.68.36.33:5000/api/v1/user', options);
+  const data = await response.json();
+  
+  console.log(data);
+}
+
+  
     const [phone, setPhone] = useState("");
     const navigate=useNavigate();
     const [open, setOpen] = React.useState(false);
-    const [email, setEmail] = useState("");
-    const [error, setError] = useState(false)
     const [formFields, setFormFields] = useState([
       { phoneNumber: '', grade: '', experience: '' },
     ])
-  
-    const handleFormChange = (event, index) => {
-      let data = [...formFields];
-      data[index][event.target.name] = event.target.value;
-      setFormFields(data);
-    }
   
     const submit = (e) => {
       e.preventDefault();
@@ -90,7 +101,9 @@ export default function Home(){
           <DialogContentText style={{color:'rgb(96,57,147)' , fontSize:'18px', fontWeight: 'bold'}}>
           
           </DialogContentText>
-          <form onSubmit={submit}>
+
+          <form onSubmit={submitForm}>
+
           <Phone 
           inputStyle={{width: '250px',
             height: '45px',
@@ -105,38 +118,41 @@ export default function Home(){
       country={"us"}
       enableSearch={true}
       value={phone}
+      name = 'phone'
       onChange={(phone) => setPhone(phone)}
     />
-        {formFields.map((form, index) => {
-          return (
-            <div key={index}>
-              <Input2
-                name='grade'
-                placeholder='Grade'
-                onChange={event => handleFormChange(event, index)}
-                value={form.grade}
-              />
-              <Input2
-                name='experience'
-                placeholder='Experience'
-                onChange={event => handleFormChange(event, index)}
-                value={form.experience}
-              />
-              <Removebtn onClick={() => removeFields(index)}>-</Removebtn>
-            </div>
-          )
-        })}
-      </form>
-      <Addmorebtn onClick={addFields}>Add More Children</Addmorebtn>
+
+  {formFields.map((form, index) => {
+    return (
+      <div key={index}>
+       <Select name="gradeLevel" required>
+      <Option value="">Select grade level</Option>
+      <Option value="1">Grade 1</Option>
+      <Option value="2">Grade 2</Option>
+      <Option value="3">Grade 3</Option>
+    </Select>
+    <Select name="codingLevel" required>
+      <Option value="">Select coding level</Option>
+      <Option value="beginner">Beginner</Option>
+      <Option value="intermediate">Intermediate</Option>
+      <Option value="advanced">Advanced</Option>
+    </Select>
+        <Removebtn onClick={() => removeFields(index)}>-</Removebtn>
+      </div>
+    );
+  })}
+ 
+       
+        <Addmorebtn onClick={addFields}>Add More Children</Addmorebtn>
       <br />
+      <Link to='/courses'>
+        <Submitbtn type = 'submit'>Submit</Submitbtn>
+                  </Link>
+  
+</form>
           
         </DialogContent>
-        <DialogActions>
-        <Link to='/courses'>
-        <Submitbtn onClick={submit}>Submit</Submitbtn>
-                  </Link>
-          
-        </DialogActions>
+        
       </Dialog>
 
 </Left>
@@ -213,8 +229,39 @@ const Input = styled.input`
 `;
 
 const Phone = styled(PhoneInput)`
-
+margin-bottom:10px;
 `;
+
+const Select = styled.select`
+width: 250px;
+height: 45px;
+border-radius:10px;
+border-style:solid;
+padding-left:10px;
+border-color: rgb(96,57,147);
+border-width:0.6px;
+background-color: rgb(236, 236, 236);
+margin-bottom:10px;
+margin-right:5px;
+padding-right:5px;
+`
+
+const Option = styled.option`
+width: 235px;
+height: 40px;
+border-radius:10px;
+border-style:solid;
+padding-left:10px;
+border-color: rgb(96,57,147);
+border-width:0.6px;
+background-color: rgb(236, 236, 236);
+margin-bottom:5px;
+margin-right:5px;
+::placeholder {
+  color:rgb(96,57,147);
+ }
+
+`
 const Input2 = styled.input`
 width: 235px;
 height: 40px;

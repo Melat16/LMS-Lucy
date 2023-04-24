@@ -13,7 +13,7 @@ export default function ExploreCourses(){
       try {
         const response = await axios.get('http://208.68.36.33:5000/api/v1/course');
         setCourses(response.data);
-        console.log(response.data)
+        //console.log(response.data)
       } catch (error) {
         console.error(error);
       }
@@ -38,10 +38,10 @@ export default function ExploreCourses(){
           <Div key={course._id}>
             <H3>{course.Name}</H3>
             <InnerDiv2><P>{course.Description}</P><Link to='/courses'>
-            <Button onClick={submit}>View More</Button>
+            
                   </Link></InnerDiv2>
 
-            
+                  <Button onClick={submit}>View More</Button>
            
           </Div>
         
@@ -54,6 +54,7 @@ const Button = styled.button`
 width:130px;
 height:45px;
 color:white;
+margin-top:10px;
 background:rgb(248, 134, 18);
 border:none;
 `
@@ -74,14 +75,14 @@ text-align: center;
 color: rgb(71, 64, 64);
 `
 const Div = styled.div`
-height: 230px;
+height: 280px;
 width:380px;
 margin-left:60px;
 border-style: solid;
 border-radius: 15px;
 border-width:0.8px;
-border-color:rgb(96,57,147) ;
-`
+border-color:rgb(96,57,147) ;`
+
 const H3 = styled.h4`
 font-size: 24px;
 font-weight:bold;
@@ -102,8 +103,8 @@ margin-left:30px;
 margin-top:5px;
 border-style: solid;
 border-radius: 10px;
-background-color: red;
 border-color:rgb(58, 175, 255);
 background-color:rgb(58, 175, 255);
+overflow:hidden;
 
 `

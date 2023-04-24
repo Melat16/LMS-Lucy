@@ -8,10 +8,13 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Link ,useNavigate } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/material.css";
 import { useState } from "react";
 
 
 export default function Home(){
+    const [phone, setPhone] = useState("");
     const navigate=useNavigate();
     const [open, setOpen] = React.useState(false);
     const [email, setEmail] = useState("");
@@ -88,7 +91,22 @@ export default function Home(){
           
           </DialogContentText>
           <form onSubmit={submit}>
-            <Input name='number' placeholder="Phone Number" />
+          <Phone 
+          inputStyle={{width: '250px',
+            height: '45px',
+            borderRadius:'10px',
+            borderStyle:'solid',
+            paddingLeft:'60px',
+            borderColor: 'rgb(96,57,147)',
+            borderWidth:'0.6px',
+            backgroundColor: 'rgb(236, 236, 236)',
+            marginBottom:'5px',
+            marginRight:'5px'}}
+      country={"us"}
+      enableSearch={true}
+      value={phone}
+      onChange={(phone) => setPhone(phone)}
+    />
         {formFields.map((form, index) => {
           return (
             <div key={index}>
@@ -192,6 +210,10 @@ const Input = styled.input`
   @media (max-width: 768px) {
     width: 100%;
   }
+`;
+
+const Phone = styled(PhoneInput)`
+
 `;
 const Input2 = styled.input`
 width: 235px;

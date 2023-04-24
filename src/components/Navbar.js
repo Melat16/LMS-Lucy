@@ -75,7 +75,7 @@ export default function Navbar(){
   //   });
   // }
   
-  axios.get('http://208.68.36.33:5000/api/v1/course')
+  axios.get('http://208.68.36.33:5000/api/v1/user')
   .then(response => {
     const data = response.data;
     console.log(data);
@@ -98,7 +98,7 @@ export default function Navbar(){
      </Link>
     </Leftcontainer>
     <Rightcontainer>
-    <Button>Get Started</Button>
+    <Button onClick={handleButtonClick}>Get Started</Button>
     </Rightcontainer>
 
 </Container>

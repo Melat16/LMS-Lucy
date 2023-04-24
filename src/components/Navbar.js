@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components"
 import Logo from "../assets/IMG_0984 1.png"
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 
 const Leftcontainer = styled.div`
@@ -53,6 +54,38 @@ const Button = styled.button`
   }
 `;
 export default function Navbar(){
+
+   const  handleButtonClick = () => {
+  //   axios.post('http://208.68.36.33:5000/api/v1/course', {
+  //     Name: 'Python',
+  //     Description: 'Introduction to python programming',
+  //     price: 49.99,
+  //     skills: ['Python'],
+  //     level:2,
+  //     duration:'10 months',
+  //     schedule:new Date(2021, 11, 31) 
+  //   })
+  //   .then(response => {
+  //     const data = response.data;
+  //     console.log(data);
+  //     // do something with the data
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //   });
+  // }
+  
+  axios.get('http://208.68.36.33:5000/api/v1/course')
+  .then(response => {
+    const data = response.data;
+    console.log(data);
+    // do something with the data
+  })
+  .catch(error => {
+    console.log(error);
+  });
+}
+
     return(
 
 <Container>

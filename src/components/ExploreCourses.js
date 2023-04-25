@@ -6,6 +6,7 @@ import { Link ,useNavigate } from "react-router-dom";
 export default function ExploreCourses(){
   const navigate=useNavigate();
   const [courses, setCourses] = useState([]);
+  
 
   useEffect(() => {
     async function fetchCourses() {
@@ -23,58 +24,56 @@ export default function ExploreCourses(){
   const submit = (e) => {
     e.preventDefault();
     navigate('/singlecourse');
+
   }
+
 
     return(
 <>
 <H1>Explore Courses</H1>
-      <Container>       
+      <Container>
+        
 {courses.map((course) => (
        
           <Div key={course._id}>
-            <H3>{course.PackageName}</H3>
+            <H3>{course.Name}</H3>
             <InnerDiv2><P>{course.Description}</P><Link to='/courses'>
             
                   </Link></InnerDiv2>
 
-                  <Button onClick={submit}>View More</Button>          
-          </Div>       
+                  <Button onClick={submit}>View More</Button>
+           
+          </Div>
+        
       ))}
 </Container>
 </>
     )
 }
 const Button = styled.button`
-  width: 130px;
-  height: 45px;
-  color: white;
-  margin-top: 10px;
-  background: rgb(248, 134, 18);
-  border: none;
-`;
-
-const Container = styled.div`
-  width: 100%;
-  height: auto;
-  max-width: 1350px;
-  margin-left: 150px;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 80px;
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    margin-left: 0;
-    align-items: center;
-  }
-`;
-
+width:130px;
+height:45px;
+color:white;
+margin-top:10px;
+background:rgb(248, 134, 18);
+border:none;
+`
+const Container= styled.div`
+width:100%;
+height:auto;
+max-width: 1350px;
+margin-left:150px;
+display: flex;
+flex-direction: row;
+margin-bottom:80px;
+`
 const H1 = styled.h1`
-  font-size: 42px;
-  font-weight: bold;
-  margin-bottom: 60px;
-  text-align: center;
-  color: rgb(71, 64, 64);
-`;
+font-size:42px;
+font-weight:bold;
+margin-bottom:60px;
+text-align: center;
+color: rgb(71, 64, 64);
+`
 const Div = styled.div`
 height: 280px;
 width:380px;
@@ -82,8 +81,8 @@ margin-left:60px;
 border-style: solid;
 border-radius: 15px;
 border-width:0.8px;
-border-color:rgb(96,57,147) ;
-`
+border-color:rgb(96,57,147) ;`
+
 const H3 = styled.h4`
 font-size: 24px;
 font-weight:bold;
@@ -107,4 +106,5 @@ border-radius: 10px;
 border-color:rgb(58, 175, 255);
 background-color:rgb(58, 175, 255);
 overflow:hidden;
+
 `

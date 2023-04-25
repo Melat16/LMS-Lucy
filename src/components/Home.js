@@ -395,7 +395,7 @@ const Sub = styled.div`
   border-width: 1px;
   width: 380px;
   height: 180px;
-  margin-left: 320px;
+  margin-left: 250px;
   margin-bottom: 40px;
 
 

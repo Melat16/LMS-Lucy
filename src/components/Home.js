@@ -362,7 +362,7 @@ const Sub = styled.div`
   border-width: 1px;
   width: 380px;
   height: 180px;
-  margin-left: 250px;
+  margin-left: 310px;
   margin-bottom: 40px;
 
 

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import image1 from '../assets/girl.png'
 import Background from "../assets/bg2.png"
 import Dialog from "@material-ui/core/Dialog";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Link ,useNavigate } from "react-router-dom";
@@ -14,52 +16,52 @@ import axios from "axios";
 
 export default function Home(){
 
-  const [open, setOpen] = React.useState(false);
-  const [Email, setEmail] = useState('');
-  const [PhoneNumber, setPhone] = useState('');
-  const [Students, setStudents
-  ] = useState([
-    { GradeLevel: '',  CodingExperiance: '' },
-  ]);
+  const submitForm = async (event) => {
+  event.preventDefault();
 
-  const addFields = () => {
-    setStudents
-    ([...Students
-      , { GradeLevel: '',  CodingExperiance: '' }]);
+  const form = new FormData(event.target);
+
+  const options = {
+    method: 'POST',
+    body: form,
   };
 
-  const removeFields = (index) => {
-    const newStudents
-    = [...Students
-    ];
-    newStudents
-    .splice(index, 1);
-    setStudents
-    (newStudents
-      );
-  };
+  const response = await fetch('http://208.68.36.33:5000/api/v1/user', options);
+  const data = await response.json();
+  
+  console.log(data);
+}
 
-  const handleInputChange = (index, event) => {
-    const values = [...Students
-    ];
-    if (event.target.name === 'GradeLevel') {
-      values[index].GradeLevel = event.target.value;
-    } else if (event.target.name === ' CodingExperiance') {
-      values[index].CodingExperiance = event.target.value;
+  
+    const [phone, setPhone] = useState("");
+    const navigate=useNavigate();
+    const [open, setOpen] = React.useState(false);
+    const [formFields, setFormFields] = useState([
+      { phoneNumber: '', grade: '', experience: '' },
+    ])
+  
+    const submit = (e) => {
+      e.preventDefault();
+      console.log(formFields);
+      handleClose();
+      navigate('/courses');
+
     }
-    setStudents
-    (values);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = { Email, PhoneNumber,Students  };
-    axios
-      .post('http://208.68.36.33:5000/api/v1/user', formData)
-      .then((response) => console.log(response.data))
-      .catch((error) => console.log(error));
-      
-  };
+  
+    const addFields = () => {
+      let object = {
+        grade: '',
+        experience: ''
+      }
+  
+      setFormFields([...formFields, object])
+    }
+  
+    const removeFields = (index) => {
+      let data = [...formFields];
+      data.splice(index, 1)
+      setFormFields(data)
+    }
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -69,10 +71,12 @@ export default function Home(){
     setOpen(false);
   };
 
+ 
+
     return(
 <Container>
-
 <Left>
+
     <H1> <span style={{color: "rgb(96,57,147)"}}>Code</span> , <span style={{color: "rgb(58, 175, 255)"}}>Create</span> and <span style={{color: "rgb(248, 134, 18)"}}> Connect</span></H1>
     <H5>We will recommend courses</H5>
     <Sub>
@@ -90,12 +94,17 @@ export default function Home(){
     </Sub>
     <Button onClick={handleClickOpen}>Get Started</Button>
     
+
       <Dialog open={open} onClose={handleClose}>
       <DialogTitle style={{fontSize:'40px', fontWeight:'bold' , textAlign: 'center' , color:'rgb(96,57,147)'}}>Register</DialogTitle>
         <DialogContent>
-          <form onSubmit={handleSubmit}>
-   
-       <Phone 
+          <DialogContentText style={{color:'rgb(96,57,147)' , fontSize:'18px', fontWeight: 'bold'}}>
+          
+          </DialogContentText>
+
+          <form onSubmit={submitForm}>
+
+          <Phone 
           inputStyle={{width: '250px',
             height: '45px',
             borderRadius:'10px',
@@ -107,62 +116,41 @@ export default function Home(){
             marginBottom:'5px',
             marginRight:'5px'}}
       country={"us"}
-      type="tel"
       enableSearch={true}
-      value={PhoneNumber}
-      onChange={(value) => setPhone(value)}
-      placeholder="Enter phone number"
-      required
+      value={phone}
+      name = 'phone'
+      onChange={(phone) => setPhone(phone)}
     />
-      
-      <Input2
-        type="email"
-        value={Email}
-        onChange={(event) => setEmail(event.target.value)}
-        placeholder="Enter email"
-        required
-      />
 
-      {Students.map((child, index) => {
-        return (
-          <div key={index}>
-            <Select
-              name="GradeLevel"
-              value={child.GradeLevel}
-              onChange={(event) => handleInputChange(index, event)}
-              required
-            >
-              <Option value="">Select grade level</Option>
-              <Option value="Grade 2-3">Grade 2-3</Option>
-              <Option value="Grade 4-5">Grade 4-5</Option>
-              <Option value="Grade 6-8">Grade 6-8</Option>
-              <Option value="Grade 11-12">Grade 11-12</Option>
-            </Select>
-
-            <Select
-              name=" CodingExperiance"
-              value={child.CodingExperiance}
-              onChange={(event) => handleInputChange(index, event)}
-              required
-            >
-      <Option value="">Select coding level</Option>
-      <Option value="No-Experiance">No-Experiance</Option>
-      <Option value="Beginner-Level">Beginner-Level</Option>
-      <Option value="Intermediate-Level">Intermediate-Level</Option>
-      <Option value="Experianced">Experianced</Option>
+  {formFields.map((form, index) => {
+    return (
+      <div key={index}>
+       <Select name="gradeLevel" required>
+      <Option value="">Select grade level</Option>
+      <Option value="1">Grade 1</Option>
+      <Option value="2">Grade 2</Option>
+      <Option value="3">Grade 3</Option>
     </Select>
-
-            <Removebtn onClick={() => removeFields(index)}>-</Removebtn>
-          </div>
-        );
-      })}
-
-     <Addmorebtn onClick={addFields}>Add More Children</Addmorebtn>
+    <Select name="codingLevel" required>
+      <Option value="">Select coding level</Option>
+      <Option value="beginner">Beginner</Option>
+      <Option value="intermediate">Intermediate</Option>
+      <Option value="advanced">Advanced</Option>
+    </Select>
+        <Removebtn onClick={() => removeFields(index)}>-</Removebtn>
+      </div>
+    );
+  })}
+ 
+       
+        <Addmorebtn onClick={addFields}>Add More Children</Addmorebtn>
       <br />
-    
+      <Link to='/courses'>
         <Submitbtn type = 'submit'>Submit</Submitbtn>
-                  
-    </form>          
+                  </Link>
+  
+</form>
+          
         </DialogContent>
         
       </Dialog>
@@ -175,11 +163,14 @@ export default function Home(){
               width: '500px',
             }} />
 </Right>
+
 </Container>
+
     )
 }
 
 const Container = styled.div`
+
 background-image: url(${Background});
 background-repeat:no-repeat;
 height: 90vh;
@@ -190,7 +181,7 @@ width: 100%;
 }
 
 @media screen and (max-width: 480px) {
-  height: 65vh;
+  height: 60vh;
 }
 `
 const Left = styled.div`
@@ -214,6 +205,26 @@ const Right = styled.div`
 
   @media(max-width: 768px) {
    display:none;
+  }
+`;
+const Input = styled.input`
+  width: 490px;
+  height: 40px;
+  border-radius:10px;
+  border-style:solid;
+  padding-left:10px;
+  border-color: rgb(96,57,147);
+  border-width:0.6px;
+  background-color: rgb(236, 236, 236);
+  margin-bottom:5px;
+  margin-right:5px;
+
+  ::placeholder {
+    color:rgb(96,57,147);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -252,7 +263,7 @@ margin-right:5px;
 
 `
 const Input2 = styled.input`
-width: 490px;
+width: 235px;
 height: 40px;
 border-radius:10px;
 border-style:solid;
@@ -260,10 +271,10 @@ padding-left:10px;
 border-color: rgb(96,57,147);
 border-width:0.6px;
 background-color: rgb(236, 236, 236);
-margin-bottom:15px;
+margin-bottom:5px;
 margin-right:5px;
 ::placeholder {
-  color:black;
+  color:rgb(96,57,147);
  }
 
 
@@ -362,7 +373,7 @@ const Sub = styled.div`
   border-width: 1px;
   width: 380px;
   height: 180px;
-  margin-left: 310px;
+  margin-left: 320px;
   margin-bottom: 40px;
 
 

@@ -40,7 +40,6 @@ const Container = styled.div`
 
   @media (max-width: 768px) {
     height: auto;
-    margin-top:0px;
   }
 `;
 
@@ -95,15 +94,16 @@ const Sub = styled.div`
 const SubContainer = styled.div`
   display: flex;
   flex-direction: row;
-
+  margin-left:90px;
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+   
   }
 `;
 
 const P = styled.p`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 200px;
   text-align: center;
   color: white;

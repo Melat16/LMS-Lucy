@@ -16,7 +16,6 @@ export default function Footer(){
 <H1>LUCY</H1>
 <H6>Lorem ipsum dolor <FacebookIcon />  <TwitterIcon /> <InstagramIcon /></H6>
 
-
 <Hr/>
 
 <H1>Location</H1>
@@ -47,9 +46,11 @@ export default function Footer(){
 
 const Main = styled.div`
   background-image: url(${Background});
-  height:450px;
+  height: 450px;
+
   @media (max-width: 768px) {
     background:rgb(96,57,147);
+    height: 620px;
   }
 `;
 
@@ -58,40 +59,51 @@ const Container = styled.div`
   margin-bottom: 0px;
 
   @media (max-width: 768px) {
-    height: 620px;
-    display:block;
-    padding-top:0.7px;
+    height: 560px;
+    display: block;
+    padding-top: 0.7px;
   }
 `;
-
 const Last = styled.div`
   height: 70px;
   background-color: rgb(108, 63, 168);
   width: 100%;
   margin: 0px;
-  text-align:start;
+  text-align: start;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    height: 50px;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 50px;
+  }
 `;
+
 
 const P = styled.p`
   font-size: 16px;
   font-weight: lighter;
   color: white;
- align-items:center;
+  align-items: center;
   padding-top: 15px;
-  @media (max-width: 768px) {
+  margin-left:85px;
+
+  @media(max-width: 768px) {
     font-size: 14px;
   }
 `;
 
 const Hr = styled.hr`
-width:400px;
-margin-left:120px;
-@media (max-width: 768px) {
-    font-size: 14px;
-    width:300px;
+  width: 400px;
+  margin-left: 120px;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    margin-left: 40px;
   }
-`
+`;
 
 const H6 = styled.h6`
   font-size: 18px;
@@ -120,7 +132,7 @@ const Left = styled.div`
   // Media query for screens less than 768px wide
   @media (max-width: 768px) {
     width: 100%;
-    margin-top: 60px;
+    margin-top: 30px;
     height: 250px;
     float:none;
   }
@@ -137,7 +149,7 @@ const Right = styled.div`
   @media (max-width: 768px) {
 
     width: 100%;
-    margin-top: 40px;
+    margin-top: 10px;
     float:none;
   }
 `;
@@ -175,12 +187,11 @@ const FormDiv = styled.div`
   margin-left: 250px;
 
   @media (max-width: 768px) { /* adjust breakpoint as needed */
-    width: 350px;
+    width: 375px;
     margin-left: 0;
     box-sizing: border-box;
-    padding: 10px;
-    padding-left:30px;
-    margin-top: 20px;
+    padding: 20px;
+    margin-top: 5px;
     border:none;
   }
 `;

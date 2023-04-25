@@ -5,11 +5,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ExploreCourses from "../components/ExploreCourses"
 
-const Container= styled.div`
-width:100%;
-
-`
-
 export default function Courses(){
     return(
         
@@ -21,3 +16,10 @@ export default function Courses(){
 </Container>
     )
 }
+
+const Container= styled.div`
+width:100%;
+@media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`

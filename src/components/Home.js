@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import image1 from '../assets/girl.png'
 import Background from "../assets/bg2.png"
 import Dialog from "@material-ui/core/Dialog";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Link ,useNavigate } from "react-router-dom";
@@ -16,6 +14,7 @@ import axios from "axios";
 
 export default function Home(){
 
+  const [open, setOpen] = React.useState(false);
   const [Email, setEmail] = useState('');
   const [PhoneNumber, setPhone] = useState('');
   const [Students, setStudents
@@ -61,12 +60,6 @@ export default function Home(){
       .catch((error) => console.log(error));
       
   };
- 
-    const navigate=useNavigate();
-    const [open, setOpen] = React.useState(false);
-  
-  
- 
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -76,12 +69,10 @@ export default function Home(){
     setOpen(false);
   };
 
- 
-
     return(
 <Container>
-<Left>
 
+<Left>
     <H1> <span style={{color: "rgb(96,57,147)"}}>Code</span> , <span style={{color: "rgb(58, 175, 255)"}}>Create</span> and <span style={{color: "rgb(248, 134, 18)"}}> Connect</span></H1>
     <H5>We will recommend courses</H5>
     <Sub>
@@ -99,13 +90,9 @@ export default function Home(){
     </Sub>
     <Button onClick={handleClickOpen}>Get Started</Button>
     
-
       <Dialog open={open} onClose={handleClose}>
       <DialogTitle style={{fontSize:'40px', fontWeight:'bold' , textAlign: 'center' , color:'rgb(96,57,147)'}}>Register</DialogTitle>
         <DialogContent>
-          <DialogContentText style={{color:'rgb(96,57,147)' , fontSize:'18px', fontWeight: 'bold'}}>
-          
-          </DialogContentText>
           <form onSubmit={handleSubmit}>
    
        <Phone 
@@ -135,6 +122,7 @@ export default function Home(){
         placeholder="Enter email"
         required
       />
+
       {Students.map((child, index) => {
         return (
           <div key={index}>
@@ -150,6 +138,7 @@ export default function Home(){
               <Option value="Grade 6-8">Grade 6-8</Option>
               <Option value="Grade 11-12">Grade 11-12</Option>
             </Select>
+
             <Select
               name=" CodingExperiance"
               value={child.CodingExperiance}
@@ -162,6 +151,7 @@ export default function Home(){
       <Option value="Intermediate-Level">Intermediate-Level</Option>
       <Option value="Experianced">Experianced</Option>
     </Select>
+
             <Removebtn onClick={() => removeFields(index)}>-</Removebtn>
           </div>
         );
@@ -185,14 +175,11 @@ export default function Home(){
               width: '500px',
             }} />
 </Right>
-
 </Container>
-
     )
 }
 
 const Container = styled.div`
-
 background-image: url(${Background});
 background-repeat:no-repeat;
 height: 90vh;

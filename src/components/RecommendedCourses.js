@@ -7,10 +7,12 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { useState } from "react";
 import image1 from '../assets/scratch.jpg'
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
-export default function RecommendedCourses(){ const [selectedDate, setSelectedDate] = useState(null);
+export default function RecommendedCourses(){
+  const [open, setOpen] = React.useState(false);
+  const [opend2,setOpend2] = React.useState(false);
+  const [opend3,setOpend3] = React.useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
 
   const handleSelectDate1 = () => {
@@ -47,14 +49,10 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
     }
     setSelected(i);
   };
-  
-    const [open, setOpen] = React.useState(false);
-    const [opend2,setOpend2] = React.useState(false);
-    const [opend3,setOpend3] = React.useState(false);
 
-    const handleClickOpen = () => {
+      const handleClickOpen = () => {
       setOpen(true);
-    };
+      };
       const handleClickOpend2 = () => {
         setOpend2(true);
         setOpen(false);
@@ -77,8 +75,7 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
 <Container>
   <H1>Recommended Courses</H1>
   <Container2>
-
-<Div>
+  <Div>
     <Div4>
     <img alt='background' src={image1} style={{
               height: '220px',
@@ -93,7 +90,7 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
     <Li>Schedule ~ Mon - Friday from 4pm - 6pm</Li>
     
 </Ul> 
-        </Div3>   
+    </Div3>   
     </Div>
 <Div2>
 <H3>Scratch Programming</H3>

@@ -18,7 +18,11 @@ export default function Landing(){
 </Container>
     )
 }
-const Container = styled.div`
-width:100%;
 
-`
+const Container = styled.div`
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;

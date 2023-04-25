@@ -1,6 +1,41 @@
 import react from 'react';
 import styled from "styled-components"
 
+
+export default function WhyChooseUs(){
+    return(
+
+<Container>
+    <H1>Why Choose Us?</H1>
+    <Sub>
+
+    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
+         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
+         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
+    </Sub>
+    <Sub2>
+
+    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
+         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
+         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
+    </Sub2>
+    <Sub3>
+
+    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
+         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
+         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
+    </Sub3>
+
+    <Sub4>
+
+    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
+         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
+         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
+    </Sub4>
+</Container>
+    )
+}
+
 const Container = styled.div`
 height :85vh;
 
@@ -93,36 +128,3 @@ const H1 = styled.h1`
     margin-top: 40px;
   }
 `;
-export default function WhyChooseUs(){
-    return(
-
-<Container>
-    <H1>Why Choose Us?</H1>
-    <Sub>
-
-    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
-         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
-         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
-    </Sub>
-    <Sub2>
-
-    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
-         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
-         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
-    </Sub2>
-    <Sub3>
-
-    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
-         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
-         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
-    </Sub3>
-
-    <Sub4>
-
-    <P>Lorem ipsum dolor sit amet. Id iste eaque et neque veritatis vel magni
-         atque? Quo vero excepturi est vero ipsa Id iste eaque et neque
-         veritatis vel magni atque? Quo vero excepturi est vero ipsa</P>
-    </Sub4>
-</Container>
-    )
-}

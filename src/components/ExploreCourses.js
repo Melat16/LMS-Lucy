@@ -6,7 +6,6 @@ import { Link ,useNavigate } from "react-router-dom";
 export default function ExploreCourses(){
   const navigate=useNavigate();
   const [courses, setCourses] = useState([]);
-  
 
   useEffect(() => {
     async function fetchCourses() {
@@ -24,32 +23,28 @@ export default function ExploreCourses(){
   const submit = (e) => {
     e.preventDefault();
     navigate('/singlecourse');
-
   }
-
 
     return(
 <>
 <H1>Explore Courses</H1>
-      <Container>
-        
+      <Container>       
 {courses.map((course) => (
        
           <Div key={course._id}>
-            <H3>{course.Name}</H3>
+            <H3>{course.PackageName}</H3>
             <InnerDiv2><P>{course.Description}</P><Link to='/courses'>
             
                   </Link></InnerDiv2>
 
-                  <Button onClick={submit}>View More</Button>
-           
-          </Div>
-        
+                  <Button onClick={submit}>View More</Button>          
+          </Div>       
       ))}
 </Container>
 </>
     )
 }
+
 const Button = styled.button`
 width:130px;
 height:45px;
@@ -81,8 +76,8 @@ margin-left:60px;
 border-style: solid;
 border-radius: 15px;
 border-width:0.8px;
-border-color:rgb(96,57,147) ;`
-
+border-color:rgb(96,57,147) ;
+`
 const H3 = styled.h4`
 font-size: 24px;
 font-weight:bold;
@@ -106,5 +101,4 @@ border-radius: 10px;
 border-color:rgb(58, 175, 255);
 background-color:rgb(58, 175, 255);
 overflow:hidden;
-
 `

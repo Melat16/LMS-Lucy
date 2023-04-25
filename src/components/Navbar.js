@@ -5,80 +5,24 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 
-export default function Navbar(){
-
-   const  handleButtonClick = () => {
-  //   axios.post('http://208.68.36.33:5000/api/v1/course', {
-  //     Name: 'Python',
-  //     Description: 'Introduction to python programming',
-  //     price: 49.99,
-  //     skills: ['Python'],
-  //     level:2,
-  //     duration:'10 months',
-  //     schedule:new Date(2021, 11, 31) 
-  //   })
-  //   .then(response => {
-  //     const data = response.data;
-  //     console.log(data);
-  //     // do something with the data
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   });
-  // }
-  
-  axios.get('http://208.68.36.33:5000/api/v1/user')
-  .then(response => {
-    const data = response.data;
-    console.log(data);
-  })
-  .catch(error => {
-    console.log(error);
-  });
-}
-
-    return(
-<Container>
-    <Leftcontainer>
-    <Link to='/'>
-    <img src={Logo} alt="Logo" style={{
-        width:'90px',
-        height:'80px'
-    }}/>
-     </Link>
-    </Leftcontainer>
-    <Rightcontainer>
-    <Button onClick={handleButtonClick}>Get Started</Button>
-    </Rightcontainer>
-</Container>
-    )
-}
-
-
 const Leftcontainer = styled.div`
-  height: 20%;
-  width: 50%;
-  margin-left: 5%;
-  padding-top: 2%;
+  height: 105px;
   float: left;
-
+  margin-left: 50px;
+  padding-top: 15px;
   @media (max-width: 768px) {
-    height: 15%;
-    width: 40%;
-    margin-left: 2%;
+    height: 70px;
+    margin-left: 20px;
   }
 `;
 
 const Rightcontainer = styled.div`
-  height: 18%;
-  width: 45%;
+  height: 100px;
   float: right;
-  padding-top: 3%;
-
+  padding-top: 20px;
   @media (max-width: 768px) {
-    height: 12%;
-    width: 35%;
-    padding-top: 2%;
+    height: 60px;
+    padding-top: 15px;
   }
 `;
 
@@ -107,6 +51,56 @@ const Button = styled.button`
     margin-top: 5px;
     margin-right: 20px;
     font-size: 14px;
-    float: none;
   }
-}`;
+`;
+export default function Navbar(){
+
+   const  handleButtonClick = () => {
+  //   axios.post('http://208.68.36.33:5000/api/v1/course', {
+  //     Name: 'Python',
+  //     Description: 'Introduction to python programming',
+  //     price: 49.99,
+  //     skills: ['Python'],
+  //     level:2,
+  //     duration:'10 months',
+  //     schedule:new Date(2021, 11, 31) 
+  //   })
+  //   .then(response => {
+  //     const data = response.data;
+  //     console.log(data);
+  //     // do something with the data
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //   });
+  // }
+  
+  axios.get('http://208.68.36.33:5000/api/v1/user')
+  .then(response => {
+    const data = response.data;
+    console.log(data);
+
+  })
+  .catch(error => {
+    console.log(error);
+  });
+}
+
+    return(
+
+<Container>
+    <Leftcontainer>
+    <Link to='/'>
+    <img src={Logo} alt="Logo" style={{
+        width:'90px',
+        height:'80px'
+    }}/>
+     </Link>
+    </Leftcontainer>
+    <Rightcontainer>
+    <Button onClick={handleButtonClick}>Get Started</Button>
+    </Rightcontainer>
+
+</Container>
+    )
+}

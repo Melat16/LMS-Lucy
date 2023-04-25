@@ -16,52 +16,57 @@ import axios from "axios";
 
 export default function Home(){
 
-  const submitForm = async (event) => {
-  event.preventDefault();
+  const [Email, setEmail] = useState('');
+  const [PhoneNumber, setPhone] = useState('');
+  const [Students, setStudents
+  ] = useState([
+    { GradeLevel: '',  CodingExperiance: '' },
+  ]);
 
-  const form = new FormData(event.target);
-
-  const options = {
-    method: 'POST',
-    body: form,
+  const addFields = () => {
+    setStudents
+    ([...Students
+      , { GradeLevel: '',  CodingExperiance: '' }]);
   };
 
-  const response = await fetch('http://208.68.36.33:5000/api/v1/user', options);
-  const data = await response.json();
-  
-  console.log(data);
-}
+  const removeFields = (index) => {
+    const newStudents
+    = [...Students
+    ];
+    newStudents
+    .splice(index, 1);
+    setStudents
+    (newStudents
+      );
+  };
 
-  
-    const [phone, setPhone] = useState("");
+  const handleInputChange = (index, event) => {
+    const values = [...Students
+    ];
+    if (event.target.name === 'GradeLevel') {
+      values[index].GradeLevel = event.target.value;
+    } else if (event.target.name === ' CodingExperiance') {
+      values[index].CodingExperiance = event.target.value;
+    }
+    setStudents
+    (values);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = { Email, PhoneNumber,Students  };
+    axios
+      .post('http://208.68.36.33:5000/api/v1/user', formData)
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error));
+      
+  };
+ 
     const navigate=useNavigate();
     const [open, setOpen] = React.useState(false);
-    const [formFields, setFormFields] = useState([
-      { phoneNumber: '', grade: '', experience: '' },
-    ])
   
-    const submit = (e) => {
-      e.preventDefault();
-      console.log(formFields);
-      handleClose();
-      navigate('/courses');
-
-    }
   
-    const addFields = () => {
-      let object = {
-        grade: '',
-        experience: ''
-      }
-  
-      setFormFields([...formFields, object])
-    }
-  
-    const removeFields = (index) => {
-      let data = [...formFields];
-      data.splice(index, 1)
-      setFormFields(data)
-    }
+ 
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -101,10 +106,15 @@ export default function Home(){
           <DialogContentText style={{color:'rgb(96,57,147)' , fontSize:'18px', fontWeight: 'bold'}}>
           
           </DialogContentText>
-
-          <form onSubmit={submitForm}>
-
-          <Phone 
+          <form onSubmit={handleSubmit}>
+      <Input
+        type="email"
+        value={Email}
+        onChange={(event) => setEmail(event.target.value)}
+        placeholder="Enter email"
+        required
+      />
+       <Phone 
           inputStyle={{width: '250px',
             height: '45px',
             borderRadius:'10px',
@@ -116,41 +126,53 @@ export default function Home(){
             marginBottom:'5px',
             marginRight:'5px'}}
       country={"us"}
+      type="tel"
       enableSearch={true}
-      value={phone}
-      name = 'phone'
-      onChange={(phone) => setPhone(phone)}
+      value={PhoneNumber}
+      onChange={(value) => setPhone(value)}
+      placeholder="Enter phone number"
+      required
     />
+      
 
-  {formFields.map((form, index) => {
-    return (
-      <div key={index}>
-       <Select name="gradeLevel" required>
-      <Option value="">Select grade level</Option>
-      <Option value="1">Grade 1</Option>
-      <Option value="2">Grade 2</Option>
-      <Option value="3">Grade 3</Option>
-    </Select>
-    <Select name="codingLevel" required>
+      {Students.map((child, index) => {
+        return (
+          <div key={index}>
+            <Select
+              name="GradeLevel"
+              value={child.GradeLevel}
+              onChange={(event) => handleInputChange(index, event)}
+              required
+            >
+              <Option value="">Select grade level</Option>
+              <Option value="Grade 2-3">Grade 2-3</Option>
+              <Option value="Grade 4-5">Grade 4-5</Option>
+              <Option value="Grade 6-8">Grade 6-8</Option>
+              <Option value="Grade 6-8">Grade 6-8</Option>
+            </Select>
+            <Select
+              name=" CodingExperiance"
+              value={child.CodingExperiance}
+              onChange={(event) => handleInputChange(index, event)}
+              required
+            >
       <Option value="">Select coding level</Option>
-      <Option value="beginner">Beginner</Option>
-      <Option value="intermediate">Intermediate</Option>
-      <Option value="advanced">Advanced</Option>
+      <Option value="No-Experiance">No-Experiance</Option>
+      <Option value="Beginner-Level">Beginner-Level</Option>
+      <Option value="Intermediate-Level">Intermediate-Level</Option>
+      <Option value="Experianced">Experianced</Option>
     </Select>
-        <Removebtn onClick={() => removeFields(index)}>-</Removebtn>
-      </div>
-    );
-  })}
- 
-       
-        <Addmorebtn onClick={addFields}>Add More Children</Addmorebtn>
+            <Removebtn onClick={() => removeFields(index)}>-</Removebtn>
+          </div>
+        );
+      })}
+
+     <Addmorebtn onClick={addFields}>Add More Children</Addmorebtn>
       <br />
-      <Link to='/courses'>
+    
         <Submitbtn type = 'submit'>Submit</Submitbtn>
-                  </Link>
-  
-</form>
-          
+                  
+    </form>          
         </DialogContent>
         
       </Dialog>

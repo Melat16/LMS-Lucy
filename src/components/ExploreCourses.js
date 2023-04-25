@@ -44,31 +44,37 @@ export default function ExploreCourses(){
 </>
     )
 }
-
 const Button = styled.button`
-width:130px;
-height:45px;
-color:white;
-margin-top:10px;
-background:rgb(248, 134, 18);
-border:none;
-`
-const Container= styled.div`
-width:100%;
-height:auto;
-max-width: 1350px;
-margin-left:150px;
-display: flex;
-flex-direction: row;
-margin-bottom:80px;
-`
+  width: 130px;
+  height: 45px;
+  color: white;
+  margin-top: 10px;
+  background: rgb(248, 134, 18);
+  border: none;
+`;
+
+const Container = styled.div`
+  width: 100%;
+  height: auto;
+  max-width: 1350px;
+  margin-left: 150px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 80px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    margin-left: 0;
+    align-items: center;
+  }
+`;
+
 const H1 = styled.h1`
-font-size:42px;
-font-weight:bold;
-margin-bottom:60px;
-text-align: center;
-color: rgb(71, 64, 64);
-`
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  text-align: center;
+  color: rgb(71, 64, 64);
+`;
 const Div = styled.div`
 height: 280px;
 width:380px;

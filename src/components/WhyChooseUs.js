@@ -55,7 +55,7 @@ margin-bottom:20px;
      width: 80%;
      margin-left: auto;
      margin-right: auto;
-     height:150px;
+     height:auto;
    }
 `
 const Sub2 = styled.div`
@@ -70,7 +70,7 @@ margin-bottom:20px;
      width: 80%;
      margin-left: auto;
      margin-right: auto;
-     height:150px;
+     height:auto;
    }
 `
 const Sub3 = styled.div`
@@ -85,7 +85,7 @@ const Sub3 = styled.div`
      width: 80%;
      margin-left: auto;
      margin-right: auto;
-     height:150px;
+     height:auto;
    }
 `;
 
@@ -101,7 +101,7 @@ const Sub4 = styled.div`
      width: 80%;
      margin-left: auto;
      margin-right: auto;
-     height:150px;
+     height:auto;
    }
 `;
 
@@ -110,8 +110,8 @@ const P =styled.div`
   color: black;
 
   @media (max-width: 768px) {
-    padding: 10px;
-    font-size:16px;
+    padding: auto;
+    font-size:14px;
   }
 `;
 

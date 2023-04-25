@@ -227,22 +227,27 @@ const data = [
 
 const Wrapper = styled.div`
   display: flex;
-  height:inherit;
+  height: inherit;
   width: 350px;
-  margin-top:40px;
-  margin-left:10px;
+  margin-top: 40px;
+  margin-left: 10px;
   justify-content: center;
   align-items: center;
-  @media screen and (min-width: 320px) and (max-width: 1080px) {
-    height:inherit;
-    padding:5px;
+
+  @media screen and (max-width: 1080px) {
+    width: 100%;
+    padding: 5px;
   }
 `;
 
 const Accordion = styled.div`
   width: 280px;
-  height:inherit;
-  
+  height: inherit;
+
+  @media screen and (max-width: 1080px) {
+    width: 300px;
+    margin-top:50px;
+  }
 `;
 
 const Item = styled.div`
@@ -332,6 +337,7 @@ const Container2 = styled.div`
     justify-content: center;
     align-items: center;
     height: auto;
+    width:350px;
     padding: 20px;
     margin: 0 auto;
   }

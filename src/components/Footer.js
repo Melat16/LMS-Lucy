@@ -149,7 +149,7 @@ const Right = styled.div`
   @media (max-width: 768px) {
 
     width: 100%;
-    margin-top: 10px;
+    margin-top: 0;
     float:none;
   }
 `;

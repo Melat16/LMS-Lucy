@@ -190,7 +190,7 @@ width: 100%;
 }
 
 @media screen and (max-width: 480px) {
-  height: 60vh;
+  height: 65vh;
 }
 `
 const Left = styled.div`

@@ -50,6 +50,7 @@ const Main = styled.div`
   height:450px;
   @media (max-width: 768px) {
     background:rgb(96,57,147);
+    height:635px
   }
 `;
 
@@ -77,9 +78,9 @@ const P = styled.p`
   font-size: 16px;
   font-weight: lighter;
   color: white;
- align-items:center;
+  align-items:center;
   padding-top: 15px;
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     font-size: 14px;
   }
 `;
@@ -90,6 +91,7 @@ margin-left:120px;
 @media (max-width: 768px) {
     font-size: 14px;
     width:300px;
+    margin-left:50px;
   }
 `
 
@@ -125,7 +127,6 @@ const Left = styled.div`
     float:none;
   }
 `;
-
 // Define styles for Right component
 const Right = styled.div`
   float: right;
@@ -135,7 +136,6 @@ const Right = styled.div`
 
   // Media query for screens less than 768px wide
   @media (max-width: 768px) {
-
     width: 100%;
     margin-top: 40px;
     float:none;

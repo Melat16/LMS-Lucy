@@ -59,6 +59,7 @@ export default function Home(){
       .post('http://208.68.36.33:5000/api/v1/user', formData)
       .then((response) => console.log(response.data))
       .catch((error) => console.log(error));
+      navigate('/courses');
       
   };
  
@@ -169,12 +170,10 @@ export default function Home(){
 
      <Addmorebtn onClick={addFields}>Add More Children</Addmorebtn>
       <br />
-    
-        <Submitbtn type = 'submit'>Submit</Submitbtn>
-                  
-    </form>          
-        </DialogContent>
-        
+  
+        <Submitbtn type = 'submit'>Submit</Submitbtn>           
+     </form>          
+        </DialogContent>       
       </Dialog>
 
 </Left>

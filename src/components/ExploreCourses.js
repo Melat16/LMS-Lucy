@@ -57,6 +57,7 @@ color:white;
 margin-top:10px;
 background:rgb(248, 134, 18);
 border:none;
+
 `
 const Container= styled.div`
 width:100%;
@@ -66,9 +67,12 @@ margin-left:150px;
 display: flex;
 flex-direction: row;
 margin-bottom:80px;
+@media only screen and (max-width: 768px) {
+  margin-left:0px;
+  }
 `
 const H1 = styled.h1`
-font-size:42px;
+font-size:30px;
 font-weight:bold;
 margin-bottom:60px;
 text-align: center;
@@ -81,7 +85,12 @@ margin-left:60px;
 border-style: solid;
 border-radius: 15px;
 border-width:0.8px;
-border-color:rgb(96,57,147) ;`
+border-color:rgb(96,57,147) ;
+
+@media only screen and (max-width: 768px) {
+  margin-left:5px;
+  }
+  `
 
 const H3 = styled.h4`
 font-size: 24px;

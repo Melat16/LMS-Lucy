@@ -331,12 +331,8 @@ const Container2 = styled.div`
   // Media Queries
   @media only screen and (max-width: 768px) {
     flex-direction: column;
-    display:block;
-    justify-content: center;
-    align-items: center;
+    margin-left: 0px;
     height: auto;
-    padding: 20px;
-    margin: 0 auto;
   }
 `;
 
@@ -392,6 +388,7 @@ const Div5 = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
+    margin-top:40px;
   }
 `;
 
@@ -451,6 +448,7 @@ const Button = styled.button`
     height: 40px;
     width: 120px;
     margin-top: 20px;
+    margin-bottom: 80px;
   }
 `;
 const Button2 = styled.button`

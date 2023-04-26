@@ -54,13 +54,14 @@ export default function Home(){
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formData = { Email, PhoneNumber,Students  };
+    const formData = { Email, PhoneNumber, Students };
     axios
       .post('http://208.68.36.33:5000/api/v1/user', formData)
-      .then((response) => console.log(response.data))
+      .then((response) => {
+         console.log(response.data);
+         navigate({ pathname: '/courses', state: { students: response.data } });
+       })
       .catch((error) => console.log(error));
-      navigate('/courses');
-      
   };
  
     const navigate=useNavigate();

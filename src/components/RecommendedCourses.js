@@ -5,14 +5,26 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axios from "axios";
 import image1 from '../assets/scratch.jpg'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-export default function RecommendedCourses(){ const [selectedDate, setSelectedDate] = useState(null);
+export default function RecommendedCourses(props){ const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const [students, setStudents] = useState(props?.location?.state?.students || []);
+  const [recommendations, setRecommendations] = useState([]);
 
+  useEffect(() => {
+    students.forEach((student) => {
+      axios.get(`http://recommendation-api.com/recommend?grade=${student.GradeLevel}&exp=${student.CodingExperiance}`)
+        .then((response) => {
+          setRecommendations((prev) => [...prev, response.data]);
+        })
+        .catch((error) => console.error(error));
+    });
+  }, [students]);
   const handleSelectDate1 = () => {
     setSelectedDate(new Date(2022, 3, 20));
     setSelectedTime(null);
@@ -75,7 +87,21 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
     return(
 
 <Container>
-  <H1>Recommended Courses</H1>
+<div>
+      <h1>Recommended Courses</h1>
+      {recommendations.map((recs, i) => (
+        <div key={i}>
+          <h3>For student {i + 1}:</h3>
+          <ul>
+            {recs.map((rec, j) => (
+              <li key={j}>{rec.name}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  
+  {/* <H1>Recommended Courses</H1>
   <Container2>
 
 <Div>
@@ -193,7 +219,7 @@ export default function RecommendedCourses(){ const [selectedDate, setSelectedDa
         </Accordion>
       </Wrapper>
 </Div5>
-  </Container2>
+  </Container2> */}
 </Container>
 
     )

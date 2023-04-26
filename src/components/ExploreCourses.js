@@ -21,11 +21,10 @@ export default function ExploreCourses(){
     fetchCourses();
   }, []);
 
-  const submit = (e) => {
-    e.preventDefault();
-    navigate('/singlecourse');
-
-  }
+  const viewCourse = (id) => {
+    navigate(`/courses/${id}`);
+  };
+  
 
 
     return(
@@ -41,7 +40,7 @@ export default function ExploreCourses(){
             
                   </Link></InnerDiv2>
 
-                  <Button onClick={submit}>View More</Button>
+                  <Button onClick={() => viewCourse(course._id)}>View More</Button>
            
           </Div>
         
@@ -69,6 +68,9 @@ flex-direction: row;
 margin-bottom:80px;
 @media only screen and (max-width: 768px) {
   margin-left:0px;
+  display:flex;
+  flex-direction:column;
+  margin-bottom:10px;
   }
 `
 const H1 = styled.h1`
@@ -89,6 +91,7 @@ border-color:rgb(96,57,147) ;
 
 @media only screen and (max-width: 768px) {
   margin-left:5px;
+  margin-bottom:10px;
   }
   `
 

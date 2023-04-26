@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Course from "../components/Course";
+import Packages from "../components/Packages";
 
 export default function SingleCourse(){
     return(
         
 <Container>
 <Navbar/>
-<Course/>
+<Packages/>
 <Footer/>
 </Container>
     )

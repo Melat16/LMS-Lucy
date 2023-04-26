@@ -79,7 +79,7 @@ export default function Navbar(){
   .then(response => {
     const data = response.data;
     console.log(data);
-    // do something with the data
+
   })
   .catch(error => {
     console.log(error);

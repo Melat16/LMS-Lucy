@@ -11,20 +11,28 @@ import image1 from '../assets/scratch.jpg'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-export default function RecommendedCourses(props){ const [selectedDate, setSelectedDate] = useState(null);
+export default function RecommendedCourses(props){
+  
+  const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [students, setStudents] = useState(props?.location?.state?.students || []);
   const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
     students.forEach((student) => {
-      axios.get(`http://recommendation-api.com/recommend?grade=${student.GradeLevel}&exp=${student.CodingExperiance}`)
+      axios
+        .get(
+          `http://208.68.36.33:5000/api/v1/user/recommend-course?GradeLevel=${student.GradeLevel}&CodingExperiance=${student.CodingExperiance}`
+        )
         .then((response) => {
           setRecommendations((prev) => [...prev, response.data]);
+          console.log(`CodingExperiance: ${student.CodingExperiance}, GradeLevel: ${student.GradeLevel}`, response.data);
         })
         .catch((error) => console.error(error));
     });
   }, [students]);
+
+  // render the course recommendations here
   const handleSelectDate1 = () => {
     setSelectedDate(new Date(2022, 3, 20));
     setSelectedTime(null);

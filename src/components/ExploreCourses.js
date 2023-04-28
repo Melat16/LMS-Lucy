@@ -13,7 +13,7 @@ export default function ExploreCourses(){
       try {
         const response = await axios.get('http://208.68.36.33:5000/api/v1/course');
         setCourses(response.data);
-        //console.log(response.data)
+        console.log(response.data)
       } catch (error) {
         console.error(error);
       }
@@ -25,8 +25,6 @@ export default function ExploreCourses(){
     navigate(`/courses/${id}`);
   };
   
-
-
     return(
 <>
 <H1>Explore Courses</H1>
@@ -36,19 +34,20 @@ export default function ExploreCourses(){
        
           <Div key={course._id}>
             <H3>{course.Name}</H3>
+
             <InnerDiv2><P>{course.Description}</P><Link to='/courses'>
-            
+          
                   </Link></InnerDiv2>
 
                   <Button onClick={() => viewCourse(course._id)}>View More</Button>
            
-          </Div>
-        
+          </Div>       
       ))}
 </Container>
 </>
     )
 }
+
 const Button = styled.button`
 width:130px;
 height:45px;
@@ -66,6 +65,7 @@ margin-left:150px;
 display: flex;
 flex-direction: row;
 margin-bottom:80px;
+  flex-wrap: wrap;;
 @media only screen and (max-width: 768px) {
   margin-left:0px;
   display:flex;
@@ -84,6 +84,7 @@ const Div = styled.div`
 height: 280px;
 width:380px;
 margin-left:60px;
+margin-bottom:60px;
 border-style: solid;
 border-radius: 15px;
 border-width:0.8px;

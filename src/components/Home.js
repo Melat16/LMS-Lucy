@@ -58,17 +58,18 @@ export default function Home(){
     axios
       .post('http://208.68.36.33:5000/api/v1/user', formData)
       .then((response) => {
-         console.log(response.data);
-         navigate({ pathname: '/courses', state: { students: response.data } });
-       })
+        console.log(response.data);
+        navigate('/courses', 
+        { gradeLevels: Students.map(student => student.GradeLevel), 
+          codingExperiences: Students.map(student => student.CodingExperiance) 
+        });
+      })
       .catch((error) => console.log(error));
   };
+
  
     const navigate=useNavigate();
     const [open, setOpen] = React.useState(false);
-  
-  
- 
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -77,8 +78,6 @@ export default function Home(){
   const handleClose = () => {
     setOpen(false);
   };
-
- 
 
     return(
 <Container>

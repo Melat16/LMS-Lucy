@@ -57,13 +57,21 @@ export default function Navbar(){
 
    const  handleButtonClick = () => {
     axios.post('http://208.68.36.33:5000/api/v1/course', {
-      Name: 'Scratch',
-      Description: 'Introduction to Scratch programming',
-      price: 49.99,
-      skills: ['Python'],
-      level:2,
-      duration:'10 months',
-      schedule:new Date(2021, 11, 31) 
+      Name: 'Intermediate',
+      Description: 'Introduction to Advanced programming',
+      Packages: [{
+CodingExperiance: "No-Experiance",
+Description: "This package provides scratch programming fundamentals to get u started",
+Duration: "5 weeks",
+GradeLevel: "Grade 2-3",
+PackageName: "Advance_Starter",
+Price: 100,
+Schedule:[
+   "2023-05-15T14:30:00.000Z"
+ ] 
+     } 
+    ],
+    
     })
     .then(response => {
       const data = response.data;
